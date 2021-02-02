@@ -9,7 +9,7 @@ export const grillMiddleware = () => (next: Dispatch<AnyAction>) => (action: Pay
   if (type === addItems.type) {
     const { width, height, grillItems } = payload;
 
-    const sortedItems = grillItems
+    const sortedItems = (grillItems || [])
       .reduce((acc: GrillItem[], item) => [...acc, ...Array(item.count).fill(item)], [])
       .sort((first, second) => {
         return second.width * second.height - first.width * first.height;
