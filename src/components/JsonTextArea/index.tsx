@@ -19,7 +19,7 @@ const JsonTextArea = () => {
 
     try {
       const data = JSON.parse(text);
-      dispatch(addItems(data));
+      dispatch(addItems(data.grill));
       setError('');
     } catch (e) {
       setError('Incorrect format');
